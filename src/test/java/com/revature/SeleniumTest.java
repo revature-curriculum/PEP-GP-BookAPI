@@ -22,8 +22,8 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -36,14 +36,14 @@ public class SeleniumTest {
 
     @BeforeEach
     public void setUp() {
-        WebDriverManager.chromedriver().setup();
+        WebDriverManager.msedgedriver().setup();
 
         File file = new File("src/main/java/com/revature/index.html");
         String path = "file://" + file.getAbsolutePath();
 
-        ChromeOptions options = new ChromeOptions();
+        EdgeOptions options = new EdgeOptions();
         options.addArguments("headless");
-        webDriver = new ChromeDriver(options);
+        webDriver = new EdgeDriver(options);
         wait = new WebDriverWait(webDriver, Duration.ofSeconds(30));
         webDriver.get(path);
         options.setPageLoadStrategy(PageLoadStrategy.EAGER);
