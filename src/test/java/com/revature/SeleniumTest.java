@@ -36,7 +36,7 @@ public class SeleniumTest {
 
     @BeforeEach
     public void setUp() {
-        WebDriverManager.msedgedriver().setup();
+        WebDriverManager.edgedriver().setup();
 
         File file = new File("src/main/java/com/revature/index.html");
         String path = "file://" + file.getAbsolutePath();
